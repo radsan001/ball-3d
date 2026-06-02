@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Roll Rush - Epic Ball Runner</title>
+    <meta name="description" content="Roll Rush - Navigate your ball through thrilling obstacle courses! A free, addictive 3D ball rolling game.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen">
+        <div class="start-content">
+            <div class="logo-container">
+                <div class="logo-ball"></div>
+                <h1 class="game-title">ROLL<span>RUSH</span></h1>
+                <p class="game-subtitle">Epic Ball Runner</p>
+            </div>
+            <div class="best-score-display" id="bestScoreStart">
+                <span class="trophy">🏆</span> BEST: <span id="bestScoreValue">0</span>
+            </div>
+            <button id="playBtn" class="btn-play pulse-btn">
+                <span class="play-icon">▶</span> PLAY
+            </button>
+            <div class="skin-selector">
+                <p class="skin-label">SELECT BALL</p>
+                <div class="skins" id="skinSelector"></div>
+            </div>
+            <p class="hint-text">Swipe or use ← → to move</p>
+        </div>
+    </div>
+    
+    <!-- Game HUD -->
+    <div id="gameHUD" class="hud hidden">
+        <div class="hud-top">
+            <div class="score-container">
+                <div class="score-label">SCORE</div>
+                <div class="score-value" id="scoreDisplay">0</div>
+            </div>
+            <div class="level-container">
+                <div class="level-label">LEVEL</div>
+                <div class="level-value" id="levelDisplay">1</div>
+            </div>
+            <div class="coins-container">
+                <span class="coin-icon">🪙</span>
+                <span id="coinDisplay">0</span>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-flag">🏁</div>
+        </div>
+    </div>
+    
+    <!-- Game Over Screen -->
+    <div id="gameOverScreen" class="screen hidden">
+        <div class="gameover-content">
+            <h2 class="gameover-title">GAME OVER</h2>
+            <div class="gameover-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="finalScore">0</div>
+                    <div class="stat-label">SCORE</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="finalLevel">1</div>
+                    <div class="stat-label">LEVEL</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="finalCoins">0</div>
+                    <div class="stat-label">COINS</div>
+                </div>
+            </div>
+            <div class="best-score-gameover">
+                <span class="trophy">🏆</span> BEST: <span id="bestScoreGameover">0</span>
+            </div>
+            <button id="retryBtn" class="btn-play pulse-btn">
+                <span class="play-icon">🔄</span> RETRY
+            </button>
+        </div>
+    </div>
+
+    <!-- Level Complete Screen -->
+    <div id="levelCompleteScreen" class="screen hidden">
+        <div class="levelcomplete-content">
+            <div class="star-burst">⭐</div>
+            <h2 class="levelcomplete-title">LEVEL COMPLETE!</h2>
+            <div class="levelcomplete-level" id="completedLevel">1</div>
+            <div class="levelcomplete-bonus">+500 BONUS</div>
+            <button id="nextLevelBtn" class="btn-play pulse-btn">
+                NEXT LEVEL →
+            </button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
